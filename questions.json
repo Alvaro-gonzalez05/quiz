@@ -166,5 +166,17 @@
             "e": "Ninguna de las anteriores"
         },
         "correct": "d"
+    },
+    {
+        "id": 15,
+        "question": "\u00bfCu\u00e1l es el proceso que permite a las c\u00e9lulas especializadas cumplir con determinadas funciones?",
+        "options": {
+            "a": "Diferenciaci\u00f3n",
+            "b": "Especializaci\u00f3n",
+            "c": "Adaptaci\u00f3n",
+            "d": "Evoluci\u00f3n",
+            "e": "Fotosintesis"
+        },
+        "correct": "a"
     }
 ]
