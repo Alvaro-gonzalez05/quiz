@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>Quiz de Biología</h1>
+        <div id="question-container"></div>
+        <div class="message-container">
+            <p id="correct-message" class="correct-message" style="display: none;">¡Correcto! 🎉 Buen trabajo.</p>
+            <p id="feedback" class="feedback" style="color: red; display: none;">Respuesta incorrecta. Inténtalo de nuevo.</p>
+            <p id="attempts-remaining" style="margin-top: 10px;">Intentos restantes: 2</p>
+        </div>
+        <div class="buttons">
+            <button id="confirm-button" disabled>Confirmar</button>
+            <button id="next-button">Siguiente</button>
+            <a href="/add_question" class="button">
+                <i class="fas fa-pencil-alt"></i> Agregar Pregunta
+            </a>
+        </div>
+        <div id="result" style="margin-top: 20px;"></div>
+    </div>
+
+    <script>
+        let currentQuestionIndex = 0;
+        let userAnswers = {};
+        let correctAnswers = 0;
+        let attempts = 0;
+        const maxAttempts = 2;
+        const questions = {{ questions|tojson }};
+        if (!questions || questions.length === 0) {
+            document.getElementById('question-container').innerHTML = `
+                <p style="color: red; font-size: 18px;">No hay preguntas disponibles en este momento.</p>
+            `;
+            document.querySelector('.buttons').style.display = 'none';
+        }       
+        else {
+            loadQuestion(currentQuestionIndex);
+        }
+
+        
+
+        function loadQuestion(index) {
+            const question = questions[index];
+            const questionContainer = document.getElementById('question-container');
+            questionContainer.innerHTML = `
+                <p><strong>${question.id}. ${question.question}</strong></p>
+                ${Object.entries(question.options)
+                    .map(
+                        ([key, option]) =>
+                            `<label>
+                                <input type="radio" name="answer" value="${key}" onclick="enableConfirm()">
+                                ${key}. ${option}
+                            </label><br>`
+                    )
+                    .join('')}
+            `;
+
+            // Reiniciar elementos y variables para la nueva pregunta
+            attempts = 0; // Reiniciar intentos
+            document.getElementById('confirm-button').disabled = true;
+            document.getElementById('correct-message').style.display = 'none';
+            document.getElementById('feedback').style.display = 'none';
+            document.getElementById('attempts-remaining').textContent = `Intentos restantes: ${maxAttempts}`;
+            enableOptions(true); // Habilitar las opciones para la nueva pregunta
+        }
+
+        function enableConfirm() {
+            document.getElementById('confirm-button').disabled = false;
+        }
+
+        function enableOptions(enabled) {
+            const options = document.querySelectorAll('input[name="answer"]');
+            options.forEach((option) => {
+                option.disabled = !enabled;
+            });
+        }
+
+        document.getElementById('confirm-button').addEventListener('click', () => {
+            const selectedOption = document.querySelector('input[name="answer"]:checked');
+            if (!selectedOption) return;
+
+            const userAnswer = selectedOption.value;
+            const currentQuestion = questions[currentQuestionIndex];
+
+            if (attempts < maxAttempts) {
+                attempts++; // Incrementar intentos
+                const remainingAttempts = maxAttempts - attempts;
+
+                if (userAnswer === currentQuestion.correct) {
+                    correctAnswers++;
+                    userAnswers[currentQuestion.id] = userAnswer;
+
+                    // Mostrar mensaje de respuesta correcta
+                    document.getElementById('correct-message').style.display = 'block';
+                    document.getElementById('feedback').style.display = 'none';
+
+                    // Deshabilitar Confirmar para evitar más intentos
+                    document.getElementById('confirm-button').disabled = true;
+                    enableOptions(false); // Deshabilitar las opciones
+                } else {
+                    // Mostrar mensaje de respuesta incorrecta
+                    document.getElementById('feedback').style.display = 'block';
+                    document.getElementById('correct-message').style.display = 'none';
+
+                    if (remainingAttempts > 0) {
+                        document.getElementById('attempts-remaining').textContent = `Intentos restantes: ${remainingAttempts}`;
+                    } else {
+                        // Deshabilitar Confirmar después de alcanzar el máximo de intentos
+                        document.getElementById('confirm-button').disabled = true;
+                        document.getElementById('feedback').textContent =
+                            "La respuesta es incorrecta.";
+                        document.getElementById('attempts-remaining').textContent = "Intentos restantes: 0";
+
+                        enableOptions(false); // Deshabilitar las opciones
+                        userAnswers[currentQuestion.id] = userAnswer; // Guardar la última selección
+                    }
+                }
+            }
+        });
+
+        document.getElementById('next-button').addEventListener('click', () => {
+            const selectedOption = document.querySelector('input[name="answer"]:checked');
+            const currentQuestion = questions[currentQuestionIndex];
+
+            if (!userAnswers[currentQuestion.id] && selectedOption) {
+                // Si no se confirmó pero hay una respuesta seleccionada, guardarla como definitiva
+                const userAnswer = selectedOption.value;
+                if (userAnswer === currentQuestion.correct) {
+                    correctAnswers++;
+                }
+                userAnswers[currentQuestion.id] = userAnswer;
+            } else if (!userAnswers[currentQuestion.id]) {
+                // Si no se seleccionó ninguna respuesta, se cuenta como incorrecta
+                userAnswers[currentQuestion.id] = null;
+            }
+
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                loadQuestion(currentQuestionIndex);
+            } else {
+                showResults();
+            }
+        });
+
+        function showResults() {
+            const totalQuestions = questions.length;
+            const score = (correctAnswers / totalQuestions) * 100;
+            const message =
+                score >= 70
+                    ? "Muy bien Gorda, lo hiciste muy bien 🫶🏻"
+                    : "Está bien gordita, inténtalo de nuevo que la próxima te va a ir mejor, vos podés 🫶🏻";
+
+            document.getElementById('question-container').innerHTML = '';
+            document.getElementById('result').innerHTML = `
+                <h2>Resultados</h2>
+                <p>Correctas: ${correctAnswers} / ${totalQuestions}</p>
+                <p>Calificación: ${score.toFixed(2)}%</p>
+                <p style="font-size: 18px; font-weight: bold; color: ${
+                    score >= 70 ? 'green' : 'red'
+                };">${message}</p>
+                <button id="restart-button" onclick="restartQuiz()">Reiniciar</button>
+            `;
+            document.querySelector('.buttons').style.display = 'none';
+        }
+
+        function restartQuiz() {
+            currentQuestionIndex = 0;
+            correctAnswers = 0;
+            userAnswers = {};
+            document.getElementById('result').innerHTML = '';
+            document.querySelector('.buttons').style.display = 'flex';
+            document.getElementById('confirm-button').disabled = true;
+            loadQuestion(currentQuestionIndex);
+        }
+
+        // Cargar la primera pregunta al inicio
+        loadQuestion(currentQuestionIndex);
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Nueva Pregunta</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="form-container">
+        <h1>Agregar Nueva Pregunta</h1>
+        <form action="/add_question" method="POST">
+            <label for="question">Pregunta:</label><br>
+            <textarea id="question" name="question" rows="3" required></textarea><br><br>
+
+            <label for="option_a">Opción A:</label><br>
+            <input type="text" id="option_a" name="option_a" required><br><br>
+
+            <label for="option_b">Opción B:</label><br>
+            <input type="text" id="option_b" name="option_b" required><br><br>
+
+            <label for="option_c">Opción C:</label><br>
+            <input type="text" id="option_c" name="option_c" required><br><br>
+
+            <label for="option_d">Opción D:</label><br>
+            <input type="text" id="option_d" name="option_d" required><br><br>
+
+            <label for="option_e">Opción E:</label><br>
+            <input type="text" id="option_e" name="option_e" required><br><br>
+
+            <label for="correct_option">Respuesta Correcta (a, b, c, d, e):</label><br>
+            <input type="text" id="correct_option" name="correct_option" maxlength="1" required><br><br>
+
+            <button type="submit">Guardar Pregunta</button>
+            <a href="/" class="button">Volver al Quiz</a>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,170 @@
+[
+    {
+        "id": 1,
+        "question": "Los peptidoglicanos son constituyentes de la pared celular de:",
+        "options": {
+            "a": "Todas las c\u00e9lulas procari\u00f3ticas",
+            "b": "Las c\u00e9lulas eucari\u00f3ticas",
+            "c": "Algunas c\u00e9lulas eucari\u00f3ticas",
+            "d": "Algunas c\u00e9lulas procari\u00f3ticas",
+            "e": "Las c\u00e9lulas vegetales"
+        },
+        "correct": "d"
+    },
+    {
+        "id": 2,
+        "question": "El material gen\u00e9tico de la c\u00e9lula procari\u00f3tica est\u00e1 en el nucleoide y consiste en:",
+        "options": {
+            "a": "Varias mol\u00e9culas de ADN lineal",
+            "b": "Una sola mol\u00e9cula de ADN circular con prote\u00ednas histonas",
+            "c": "Una sola mol\u00e9cula de ADN circular, prote\u00ednas no histonas y algo de ARN",
+            "d": "Una sola mol\u00e9cula de ADN lineal con algo de ARN",
+            "e": "Varias mol\u00e9culas de ADN circular"
+        },
+        "correct": "c"
+    },
+    {
+        "id": 3,
+        "question": "\u00bfCu\u00e1l es el objetivo principal de la meiosis en los seres humanos?",
+        "options": {
+            "a": "Producir c\u00e9lulas hijas gen\u00e9ticamente id\u00e9nticas",
+            "b": "Reparar el ADN da\u00f1ado",
+            "c": "Producir gametos (espermatozoides y \u00f3vulos) con diversidad gen\u00e9tica",
+            "d": "Realizar la fotos\u00edntesis",
+            "e": "Todas son correcta"
+        },
+        "correct": "c"
+    },
+    {
+        "id": 4,
+        "question": "\u00bfCu\u00e1l es el resultado de la meiosis I en los seres humanos?",
+        "options": {
+            "a": "Se producen cuatro c\u00e9lulas haploides con cromosomas no duplicados",
+            "b": "Se producen dos c\u00e9lulas diploides con cromosomas duplicados",
+            "c": "Se producen dos c\u00e9lulas haploides con 23 cromosomas cada una",
+            "d": "Se produce una c\u00e9lula haploide con 23 cromosomas",
+            "e": "Todas son correcta"
+        },
+        "correct": "c"
+    },
+    {
+        "id": 5,
+        "question": "\u00bfQu\u00e9 es el entrecruzamiento durante la meiosis I?",
+        "options": {
+            "a": "La separaci\u00f3n de los cromosomas hom\u00f3logos",
+            "b": "La uni\u00f3n de los cromosomas hom\u00f3logos",
+            "c": "El intercambio de material gen\u00e9tico entre cromosomas hom\u00f3logos",
+            "d": "La duplicaci\u00f3n del ADN",
+            "e": "Ninguna de las anteriores"
+        },
+        "correct": "c"
+    },
+    {
+        "id": 6,
+        "question": "\u00bfCu\u00e1l es el resultado final de la meiosis II en los seres humanos?",
+        "options": {
+            "a": "Se producen cuatro c\u00e9lulas diploides con cromosomas duplicados",
+            "b": "Se producen cuatro c\u00e9lulas haploides con cromosomas no duplicados",
+            "c": "Se produce una c\u00e9lula haploide con 23 cromosomas",
+            "d": "Se producen dos c\u00e9lulas haploides con 23 cromosomas cada una",
+            "e": "No existe la meiosis en humanos"
+        },
+        "correct": "b"
+    },
+    {
+        "id": 7,
+        "question": "\u00bfQui\u00e9n es considerado el padre de la gen\u00e9tica moderna?",
+        "options": {
+            "a": "Charles Darwin",
+            "b": "Gregor Mendel",
+            "c": "Albert Einstein",
+            "d": "Louis Pasteur",
+            "e": "ALVARO GONZALEZ"
+        },
+        "correct": "b"
+    },
+    {
+        "id": 8,
+        "question": "\u00bfCu\u00e1l es el principio fundamental de la primera ley de Mendel?",
+        "options": {
+            "a": "La segregaci\u00f3n de los alelos durante la formaci\u00f3n de los gametos",
+            "b": "La transmisi\u00f3n independiente de los caracteres hereditarios",
+            "c": "La uniformidad de la primera generaci\u00f3n filial en un cruce entre dos l\u00edneas puras",
+            "d": "La dominancia de un alelo sobre otro",
+            "e": "Ninguna de las anteriores"
+        },
+        "correct": "c"
+    },
+    {
+        "id": 9,
+        "question": "\u00bfCu\u00e1l es el resultado de la segunda ley de Mendel en t\u00e9rminos de la proporci\u00f3n de fenotipos en la segunda generaci\u00f3n filial?",
+        "options": {
+            "a": "1:1",
+            "b": "3:1",
+            "c": "9:3:3:1",
+            "d": "1:2:1",
+            "e": "Todas son correcta"
+        },
+        "correct": "b"
+    },
+    {
+        "id": 10,
+        "question": "\u00bfCu\u00e1l es el papel de los cromosomas sexuales en la determinaci\u00f3n del sexo biol\u00f3gico?",
+        "options": {
+            "a": "Los cromosomas X e Y determinan el sexo de manera igualitaria",
+            "b": "El cromosoma X determina el sexo femenino y el cromosoma Y determina el sexo masculino",
+            "c": "El cromosoma X determina el sexo masculino y el cromosoma Y determina el sexo femenino",
+            "d": "Los cromosomas autos\u00f3micos determinan el sexo biol\u00f3gico",
+            "e": "No cumplen ningun papel"
+        },
+        "correct": "b"
+    },
+    {
+        "id": 11,
+        "question": "\u00bfCu\u00e1l es el objetivo principal de la sistem\u00e1tica en biolog\u00eda?",
+        "options": {
+            "a": "Estudiar la diversidad biol\u00f3gica y establecer un sistema de clasificaci\u00f3n ordenado.",
+            "b": "Analizar la estructura y funci\u00f3n de los organismos vivos.",
+            "c": "Investigar la evoluci\u00f3n de las especies.",
+            "d": "Desarrollar t\u00e9cnicas de ingenier\u00eda gen\u00e9tica.",
+            "e": "Todas son correcta"
+        },
+        "correct": "a"
+    },
+    {
+        "id": 12,
+        "question": "\u00bfQui\u00e9n es considerado el \"Padre de la Taxonom\u00eda\"?",
+        "options": {
+            "a": "Carl Linnaeus",
+            "b": "Gregor Mendel",
+            "c": "Charles Darwin",
+            "d": "Arist\u00f3teles",
+            "e": "ALVARO GONZALEZ"
+        },
+        "correct": "a"
+    },
+    {
+        "id": 13,
+        "question": "\u00bfCu\u00e1l es el nombre del sistema de clasificaci\u00f3n desarrollado por Carl Linnaeus?",
+        "options": {
+            "a": "Sistem\u00e1tica",
+            "b": "Taxonom\u00eda",
+            "c": "Nomenclatura binomial",
+            "d": "Clasificaci\u00f3n jer\u00e1rquica",
+            "e": "Ninguna de las anteriores"
+        },
+        "correct": "c"
+    },
+    {
+        "id": 14,
+        "question": "\u00bfPor qu\u00e9 los virus no se consideran organismos vivos?",
+        "options": {
+            "a": "Porque no tienen estructuras celulares.",
+            "b": "Porque no pueden generar su propia energ\u00eda.",
+            "c": "Porque no pueden sintetizar prote\u00ednas por s\u00ed mismos.",
+            "d": "Todas las anteriores.",
+            "e": "Ninguna de las anteriores"
+        },
+        "correct": "d"
+    }
+]
